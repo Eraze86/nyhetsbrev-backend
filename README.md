@@ -6,4 +6,6 @@
 - npm i nodemon
 - npm install
 
-
+användarnamn: admin
+lösenord: admin
+Sidan funkar ej med inlogging, skriv /admin/loggedIn så kommer man in :/
