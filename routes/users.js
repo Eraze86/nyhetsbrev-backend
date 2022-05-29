@@ -2,13 +2,14 @@ var express = require('express');
 const UserModel = require('../module/user-model.js');
 var router = express.Router();
 const cors = require("cors");
-const userModel = require('../module/user-model.js');
-const { useColors } = require('debug/src/browser');
+
+
 router.use(cors());
 
 router.get('/', async function(req, res, next) {
   const getUser = await UserModel.find()
   res.send(getUser)
+  console.log(getUser)
 });
 
 //add new user
@@ -25,19 +26,16 @@ try{
 }
 })
 
-
-
-
 router.post("/", async function(req,res){
   const { userName, passWord } = req.body
   try{
-    const user = await userModel.findOne({userName, passWord})
-    console.log(user)
+    const user = await UserModel.findOne({userName, passWord})
     if(!user){
       console.log("här var det error")
       res.send("Testa logga in igen")
     }else{
       res.send(user)}
+     
 
   } catch(error){
     console.log("fel", error)
@@ -47,7 +45,7 @@ router.post("/", async function(req,res){
 
   router.put("/", async function(req,res){
     const { _id, newsLetter} = req.body
-    const user = await userModel.findById({_id})
+    const user = await UserModel.findById({_id})
     user.newsLetter = newsLetter
     await user.save()
     res.status(200).json(user)

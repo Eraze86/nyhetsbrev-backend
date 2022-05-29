@@ -1,4 +1,5 @@
 # nyhetsbrev-backend
+- användare: admin, Lösenord: admin
 - nxp express-generator --no-view
 - npm i core
 - npm i mongoos

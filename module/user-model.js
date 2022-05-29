@@ -19,8 +19,7 @@ const UserSchema = mongoose.Schema({
     newsLetter:{
         type: Boolean,
         required: true
-    } 
+    }
 })
-
-
 module.exports = mongoose.model("user", UserSchema)
+
